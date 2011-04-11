@@ -1,0 +1,14 @@
+= form_for [:admin, @user] do |f|
+  %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    =f.check_box :admin
+    =f.label :admin
+  %p
+    = submit_tag button
