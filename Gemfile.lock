@@ -113,6 +113,10 @@ GEM
       mongo (~> 1.2)
       tzinfo (~> 0.3.22)
       will_paginate (~> 3.0.pre)
+    mongoid-rspec (1.4.1)
+      mongoid (~> 2.0.0.rc.7)
+      mongoid-rspec
+      rspec (~> 2)
     nokogiri (1.4.4)
     orm_adapter (0.0.4)
     pickle (0.4.7)
@@ -138,13 +142,6 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
-    remarkable (4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
-    remarkable_activemodel (4.0.0.alpha4)
-      remarkable (~> 4.0.0.alpha4)
-      rspec (>= 2.0.0.alpha11)
-    remarkable_mongoid (0.6.0)
-      remarkable_activemodel (~> 4.0.0.alpha4)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -202,10 +199,10 @@ DEPENDENCIES
   jquery-rails (>= 0.2.7)
   launchy (>= 0.4.0)
   mongoid (>= 2.0.0.rc.6)
+  mongoid-rspec (>= 1.4.1)
   pickle
   rails (= 3.0.6)
   rails3-generators!
-  remarkable_mongoid (>= 0.6.0)
   rspec-rails (>= 2.5.0)
   ruby-debug19
   spork (>= 0.8.4)

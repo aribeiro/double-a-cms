@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Admin::UsersController do
+  login_admin
+
   def mock_user(stubs={})
     @mock_user ||= mock_model(User, stubs).as_null_object
   end

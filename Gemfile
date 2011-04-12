@@ -15,7 +15,7 @@ gem "jquery-rails", ">= 0.2.7"
 group :test do
   gem "rspec-rails", ">= 2.5.0"
   gem "cucumber-rails", ">= 0.4.1"
-  gem "remarkable_mongoid", ">= 0.6.0"
+  gem 'mongoid-rspec', ">= 1.4.1"
   gem "pickle"
   gem "capybara", ">= 0.4.1.2"
   gem "factory_girl", ">= 1.1.3"

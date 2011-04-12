@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::ApplicationController
   before_filter :find_user, :only => [:edit, :update, :destroy] 
   
   def index
