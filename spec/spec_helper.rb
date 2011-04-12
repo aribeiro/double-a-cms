@@ -23,8 +23,6 @@ module ControllerMacros
       @request.env["devise.mapping"] = Devise.mappings[:user]
       devise_user = Factory.create(:user) 
       sign_in devise_user
-      devise_user.confirm!
-      sign_in devise_user
       request.env['warden'] = mock(Warden, :authenticate => devise_user,
                                        :authenticate! => devise_user)
     end
