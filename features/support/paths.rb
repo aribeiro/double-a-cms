@@ -10,8 +10,11 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new page page/
+      new_admin_page_path
+
     when /the new user page/
-      new_user_path
+      new_admin_user_path
 
     when /login/
       new_user_session_path
@@ -21,6 +24,8 @@ module NavigationHelpers
       new_admin_user_path
     when /the admin edit page for user "(.+)"/
       edit_admin_user_path(User.where(:email => $1).first)
+    when /the admin edit page for page "(.+)"/
+      edit_admin_page_path(Page.where(:title => $1).first)
       
 
 
