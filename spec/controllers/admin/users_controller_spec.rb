@@ -105,7 +105,7 @@ describe Admin::UsersController do
         put :update, :id => "37"
       end
       
-      it "assigns the category as @category" do
+      it "assigns the user as @user" do
         do_put
         assigns(:user).should be(mock_user)
       end
@@ -134,7 +134,7 @@ describe Admin::UsersController do
     
     it "show a flash notice" do
       do_delete
-      flash[:notice].should == "User successfully destoyed."
+      flash[:notice].should == "User successfully destroyed."
     end
   end
 end

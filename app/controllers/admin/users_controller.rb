@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = "User successfully destoyed."
+    flash[:notice] = "User successfully destroyed."
     redirect_to(admin_users_path)
   end
 
