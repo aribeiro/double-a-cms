@@ -1,7 +1,5 @@
 DoubleACms::Application.routes.draw do
-  get "users/index"
-
-  root :to => "devise/sessions#new"
+  root :to => "home#index"
   
   namespace :admin do
     resources :users 
