@@ -11,6 +11,18 @@ Given /^I am logged in as admin$/ do
  }
 end
 
+Given /^I am logged in as "(.+)"$/ do |email|
+  password = 'secretpass'
+
+  steps %Q{
+    Given a user exist with email: "#{email}", password: "#{password}"
+    And I go to login
+    And I fill in "user_email" with "#{email}"
+    And I fill in "user_password" with "#{password}"
+    And I press "Sign in"
+ }
+end
+
 Given /^I am not logged in$/ do
   visit('/users/sign_out') # ensure that at least
 end
