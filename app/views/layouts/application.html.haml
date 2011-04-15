@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title DoubleACms
+    = stylesheet_link_tag :all
+    = csrf_meta_tag
+  %body
+    = yield
+    = javascript_include_tag :defaults
