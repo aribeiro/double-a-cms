@@ -11,6 +11,8 @@ gem "will_paginate", ">=3.0.pre2"
 gem "devise", ">=1.1.2"
 gem "rails3-generators", :git => "git://github.com/indirect/rails3-generators.git"
 gem "jquery-rails", ">= 0.2.7"
+gem "hpricot"
+gem "ruby_parser"
 
 group :test do
   gem "rspec-rails", ">= 2.5.0"
