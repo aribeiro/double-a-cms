@@ -1,4 +1,4 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < Admin::ApplicationController
   before_filter :find_page, :only => [:show, :edit, :update, :destroy]
   
   def index
