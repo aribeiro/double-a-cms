@@ -14,6 +14,11 @@ gem "jquery-rails", ">= 0.2.7"
 gem "hpricot"
 gem "ruby_parser"
 
+gem "css3buttons"
+gem 'i18n_routing'
+gem 'i18n'
+
+
 group :test do
   gem "rspec-rails", ">= 2.5.0"
   gem "cucumber-rails", ">= 0.4.1"
