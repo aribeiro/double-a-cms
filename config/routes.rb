@@ -1,14 +1,15 @@
 DoubleACms::Application.routes.draw do
   root :to => "home#index"
-  
-  namespace :admin do
-    resources :users 
-    resources :pages 
-  end
-  
-  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
-  match 'login', :to => 'devise/sessions#new'
-  match 'logout', :to  => 'devise/sessions#destroy'
+ localized(I18n.available_locales, :verbose => true) do 
+    namespace :admin do
+      resources :users 
+      resources :pages 
+    end
+    
+    devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout' }
+    match 'login', :to => 'devise/sessions#new'
+    match 'logout', :to  => 'devise/sessions#destroy'
+ end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
