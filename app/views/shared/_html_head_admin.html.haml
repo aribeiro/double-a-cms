@@ -1,0 +1,15 @@
+%head
+  - unless website_settings.website_title.blank?
+    %title= website_settings.website_title
+  - unless website_settings.front_locale.blank?
+    %meta{:"http-equiv" => "content-language", :content =>website_settings.front_locale }
+  - unless website_settings.website_description.blank?
+    %meta{:name => 'description', :content => website_settings.website_description }
+  - unless website_settings.website_keywords.blank?
+    %meta{:name => 'keywords', :content => website_settings.website_keywords }
+  
+  %meta{:charset => 'utf-8'}
+  %meta{:name => 'author', :content => "www.aatecnologia.com.br" }
+  = css3buttons_stylesheets
+  = stylesheet_link_tag :all
+  = csrf_meta_tag

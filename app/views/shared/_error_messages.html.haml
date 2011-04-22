@@ -1,0 +1,9 @@
+- if target.errors.any?
+  .ui-widget
+    .ui-state-error.ui-corner-all{:style => "padding: 0pt 0.7em;"}
+      %h2
+        %span.ui-icon.ui-icon-alert{:style => "float: left; margin-right: 0.3em;"}
+          == #{pluralize(target.errors.count, "erro")} encontrados, por favor corrija-os antes de salvar: 
+      %ul  
+        - target.errors.full_messages.uniq.each do |msg|
+          %li= msg
