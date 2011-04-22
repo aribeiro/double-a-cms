@@ -4,7 +4,8 @@ Feature: Manage pages
   I want to create, edit and delete pages
 
   Background:
-    Given I am logged in as "john@doe.com"
+    Given Language "en"
+    And I am logged in as "john@doe.com"
 
   Scenario: Show Pages List
     Given the following pages exist:

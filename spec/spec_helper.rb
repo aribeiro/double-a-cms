@@ -37,6 +37,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.orm = "mongoid"
+    I18n.locale = :en
   end
 
   config.after(:each) do

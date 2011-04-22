@@ -1,3 +1,7 @@
+Given /^Language "(.+)"$/ do |language| 
+  I18n.locale = language
+end
+
 Given /^I am logged in as admin$/ do
   email    = 'admin@admin.com'
   password = 'secretpass'

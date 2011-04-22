@@ -1,4 +1,5 @@
 = form_for [:admin, @page] do |f|
+  = render 'shared/error_messages' , :target => @page
   %p
     = f.label :title
     %br
@@ -8,4 +9,5 @@
     %br
     = f.text_area :content, :class => "tinymce"
   %p
-    = submit_tag button
+    = button_submit_tag button
+    = danger_button_link_to t("cancel"), admin_users_url

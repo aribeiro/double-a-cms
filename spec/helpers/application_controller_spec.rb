@@ -28,4 +28,18 @@ describe ApplicationHelper do
       helper.strip_words(@text, 5, " [more]").should == "Sed nec diam eu diam [more]"
     end
   end
+
+  describe "Breadcrumb" do
+    it "should return admin / pages / new" do
+      pending
+      mock(:controller_name).and_return('pages')
+      mock(:action_name).and_return('new')
+      helper.breadcrumb.should == "<li>admin</li><li>/</li><li>pages</li><li>/</li><li>new</li>"
+    end
+    
+    it "should return admin / pages" do
+      pending
+      helper.breadcrumb.should == "<li>admin</li><li>/</li><li>pages</li>"
+    end
+  end
 end

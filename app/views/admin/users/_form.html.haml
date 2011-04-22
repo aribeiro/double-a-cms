@@ -1,4 +1,9 @@
 = form_for [:admin, @user] do |f|
+  = render "/shared/error_messages", :target => @user
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
   %p
     = f.label :email
     %br
@@ -11,4 +16,5 @@
     =f.check_box :admin
     =f.label :admin
   %p
-    = submit_tag button
+    = approve_button_submit_tag button
+    = danger_button_link_to t("cancel"), admin_users_url

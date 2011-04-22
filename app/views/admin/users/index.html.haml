@@ -1,14 +1,21 @@
-%h1 Users list
+= button_group do
+  = add_button_link_to t("new", :model => t("models.user.name")), new_admin_user_url
+  = search_button_link_to t("search"), new_admin_user_url
 %table
   %tr
-    %td E-mail
-    %td Type
+    %th E-mail
+    %th Name
+    %th Type
+    %th Created at
+    %th 
   - @users.each do |user| 
     %tr
       %td= user.email
+      %td= user.name
       %td= user_type(user)
-      %td= link_to "Edit", edit_admin_user_path(user) 
-      %td= link_to "Destroy", [:admin, user], :confirm => "Are you sure?", :method => :delete
-
-%p
-  = link_to "New", new_admin_user_url
+      %td= user.created_at.to_s(:db)
+      %td
+        
+        = button_group do
+          = edit_button_link_to t("edit"), edit_admin_user_path(user) 
+          = trash_danger_button_link_to t("destroy"), [:admin, user], :confirm => "Are you sure?", :method => :delete

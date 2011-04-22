@@ -4,7 +4,8 @@ Feature: Manage users
   I want to create, edit and delete users
   
   Background:
-    Given I am logged in as admin
+    Given Language "en"
+    And I am logged in as admin
 
   Scenario: Show User List
     Given the following users exist:
@@ -15,12 +16,12 @@ Feature: Manage users
       | pill@example.com  | 123456   |
     And I go to the admin users page
     Then I should see the following users:
-      | E-mail            | Type  |
-      | admin@admin.com   | Admin |
-      | david@example.com | Staff |
-      | mark@example.com  | Staff |
-      | chris@example.com | Staff |
-      | pill@example.com  | Staff |
+      | E-mail            | Type  |               | 
+      | admin@admin.com   | Admin | Edit\nDestroy |
+      | david@example.com | Staff | Edit\nDestroy |
+      | mark@example.com  | Staff | Edit\nDestroy |
+      | chris@example.com | Staff | Edit\nDestroy |
+      | pill@example.com  | Staff | Edit\nDestroy |
 
   Scenario: Register new user
     Given I am on the admin new user page

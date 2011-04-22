@@ -1,14 +1,18 @@
-%h1 Pages list
+= button_group do
+  = add_button_link_to t("new", :model => t("models.page.name")), new_admin_page_url
+  = search_button_link_to t("search"), new_admin_page_url
 %table
   %tr
-    %td Title
-    %td Content
+    %th Title
+    %th Content
+    %th Created at
+    %th 
   - @pages.each do |page| 
     %tr
-      %td= page.title
+      %td= link_to page.title, [:admin, page]
       %td= strip_words(page.content, 5)
-      %td= link_to "Edit", edit_admin_page_path(page) 
-      %td= link_to "Destroy", [:admin, page], :confirm => "Are you sure?", :method => :delete
-
-%p
-  = link_to "New", new_admin_page_url
+      %td= page.created_at.to_s(:db)
+      %td
+        = button_group do
+          = edit_button_link_to t("edit"), edit_admin_page_path(page) 
+          = trash_danger_button_link_to t("destroy"), [:admin, page], :confirm => "Are you sure?", :method => :delete
