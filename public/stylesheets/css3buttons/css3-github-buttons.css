@@ -38,7 +38,8 @@ Licensed under Unlicense
 
 .button:hover,
 .button:focus,
-.button:active {
+.button:active,
+.button.activate{
     border-color: #3072b3;
     border-bottom-color: #2a65a0;
     text-decoration: none; 
@@ -50,19 +51,11 @@ Licensed under Unlicense
     background-image: -o-linear-gradient(#599bdc, #3072b3);
     background-image: linear-gradient(#599bdc, #3072b3);
 }
-
+.button.activate:before{
+  content: none !important;
+}
 .button:active,
 .button.active {
-    border-color: #2a65a0;
-    border-bottom-color: #3884CF;
-    color: #fff; 
-    background-color: #3072b3;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3072b3), to(#599bdc));
-    background-image: -moz-linear-gradient(#3072b3, #599bdc);
-    background-image: -o-linear-gradient(#3072b3, #599bdc);
-    background-image: linear-gradient(#3072b3, #599bdc);
-}
-.button.activate{
     border-color: #2a65a0;
     border-bottom-color: #3884CF;
     color: #fff; 
