@@ -7,5 +7,6 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
+  field :name, type: String
   field :admin, type: Boolean
 end
