@@ -1,7 +1,12 @@
 DoubleACms::Application.routes.draw do
+  get "dashboard/index"
+
   root :to => "home#index"
  localized(I18n.available_locales, :verbose => true) do 
     namespace :admin do
+      root :to => "dashboard#index"
+      resource  :dashboard, :only => [:index]
+      resources :settings, :only => [:index, :update]
       resources :users 
       resources :pages 
     end

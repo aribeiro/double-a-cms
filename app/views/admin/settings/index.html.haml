@@ -1,0 +1,116 @@
+= form_for [:admin, @setting] do |f|
+  = render 'shared/error_messages', :target => @setting
+  %fieldset
+    %legend=t("controllers.settings.languages")
+    .box_left
+      = f.label :multi_langague
+      %br
+      = f.radio_button :multi_language, false
+      %span= t("disable")
+      = f.radio_button :multi_language, true
+      %span= t("enable")
+    .box_left
+      = f.label :admin_locale
+      %br
+      = f.select :admin_locale, [["English", "en"],["Português (Brasil)","pt-BR"], ["Español","es"]]
+    .box_left 
+      = f.label :front_locale
+      %br
+      = f.select :front_locale, [["English", "en"],["Português (Brasil)","pt-BR"], ["Español","es"]]
+    .clean
+    %p
+  %fieldset
+    %legend= t("controllers.settings.seo")
+    %p
+      = f.label :website_title
+      %br
+      = f.text_field :website_title
+    %p
+      = f.label :website_keywords
+      %br
+      = f.text_field :website_keywords
+    %p
+      = f.label :website_description
+      %br
+      = f.text_area :website_description, :rows => 3, :cols => 70
+  %fieldset
+    %legend= t("controllers.settings.location")
+    %p
+      = f.label :company_country
+      %br
+      = f.text_field :company_country
+    %p
+      = f.label :company_city
+      %br
+      = f.text_field :company_city
+    %p
+      = f.label :company_zipcode
+      %br
+      = f.text_field :company_zipcode
+    %p
+      = f.label :company_neiborhood
+      %br
+      = f.text_field :company_neiborhood
+    %p
+      = f.label :company_street
+      %br
+      = f.text_field :company_street
+    %p
+      = f.label :company_address_number
+      %br
+      = f.text_field :company_address_number
+    %p
+      = f.label :company_address_more
+      %br
+      = f.text_field :company_address_more
+  %fieldset
+    %legend= t("controllers.settings.contact")
+    %p
+      = f.label :contact_notification_email
+      %br
+      = f.text_field :contact_notification_email
+    %p
+      = f.label :contact_website_email
+      %br
+      = f.text_field :contact_website_email
+    %p
+      = f.label :contact_form_email
+      %br
+      = f.text_field :contact_form_email
+    
+  %fieldset
+    %legend= t("controllers.settings.social_networks")
+    %p
+      = f.label :website_facebook
+      %br
+      = f.text_field :website_facebook
+    %p
+      = f.label :website_twitter
+      %br
+      = f.text_field :website_twitter
+    %p
+      = f.label :website_orkut
+      %br
+      = f.text_field :website_orkut
+    %p
+      = f.label :website_linkedin
+      %br
+      = f.text_field :website_linkedin
+
+  %fieldset
+    %legend= t("controllers.settings.google_analytics")
+    %p
+      = f.label :google_analytics_code
+      %br
+      = f.text_field :google_analytics_code
+    %p
+      = f.label :google_analytics_custom
+      %br
+      = f.text_area :google_analytics_custom, :rows => 6, :cols => 70
+  
+  %fieldset
+    %p
+    %p
+      = button_submit_tag t("update")
+      = danger_button_link_to t("cancel"), admin_root_url
+  
