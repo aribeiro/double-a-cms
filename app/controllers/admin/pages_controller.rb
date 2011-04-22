@@ -12,7 +12,7 @@ class Admin::PagesController < Admin::ApplicationController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      flash[:notice] = "Page successfully created."
+      flash[:notice] = t("notice.successfully.created", :model => t("models.page.name").capitalize)
       redirect_to [:admin, @page]
     else
       render :action => :new
@@ -21,7 +21,7 @@ class Admin::PagesController < Admin::ApplicationController
 
   def update
     if @page.update_attributes(params[:page])
-      flash[:notice] = "Page successfully updated."
+      flash[:notice] = t("notice.successfully.updated", :model => t("models.page.name").capitalize)
       redirect_to [:admin, @page]
     else
       render :action => :edit
@@ -30,7 +30,7 @@ class Admin::PagesController < Admin::ApplicationController
 
   def destroy
     @page.destroy
-    flash[:notice] = "Page successfully destroyed."
+    flash[:notice] = t("notice.successfully.destroyed", :model => t("models.page.name").capitalize)
     redirect_to admin_pages_path
   end
 

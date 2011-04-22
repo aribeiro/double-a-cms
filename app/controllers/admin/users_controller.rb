@@ -13,7 +13,7 @@ class Admin::UsersController < Admin::ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "User successfully created."
+      flash[:notice] = t("notice.successfully.created", :model => t("models.user.name").capitalize)
       redirect_to admin_users_path
     else
       render :action => :new
@@ -22,7 +22,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
-      flash[:notice] = "User successfully updated."
+      flash[:notice] = t("notice.successfully.updated", :model => t("models.user.name").capitalize)
       redirect_to admin_users_path
     else
       render :action => :edit
@@ -31,7 +31,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = "User successfully destroyed."
+    flash[:notice] = t("notice.successfully.destroyed", :model => t("models.user.name").capitalize)
     redirect_to(admin_users_path)
   end
 
