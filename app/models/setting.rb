@@ -28,4 +28,7 @@ class Setting
 
   field :google_analytics_code      ,:type => String
   field :google_analytics_custom    ,:type => String
+
+  validates_presence_of :admin_locale, :front_locale, :multi_language
+  validates_presence_of :website_title
 end
