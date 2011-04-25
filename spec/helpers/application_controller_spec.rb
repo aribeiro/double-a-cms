@@ -42,4 +42,67 @@ describe ApplicationHelper do
       helper.breadcrumb.should == "<li>admin</li><li>/</li><li>pages</li>"
     end
   end
+
+  describe "show notice" do
+    it "should show a div.notice when a flash[:notice] exist" do
+      flash[:notice] = "My notice"
+      helper.show_notice.should == "<div class=\"notice\">My notice</div>"
+    end
+
+    it "should not show the div.notice when a flash[:notice] is blank" do
+      flash[:notice] = nil
+      helper.show_notice.should_not =~ "<div class=\"notice\">"
+    end
+  end
+
+  describe "gravatar_url_for" do
+    it "should return a gravatar url" do
+      helper.gravatar_url_for("alfredo@aatecnologia.com.br").should match("http://www.gravatar.com/avatar/")
+    end
+  end
+
+  describe "admin_menu_item" do
+    it "should return a buttom to the controller name"
+    it "should return a activate button when it is on the controller path"
+    it "should translate the controller name on the button"
+  end
+
+  describe "welcome" do
+    context "with user name" do
+      it "should return the user name" do
+        pending
+        user = Factory.create(:user, :name => "Alfredo Ribeiro")
+        helper.welcome(user).should =~ "Alfredo Ribeiro"
+      end
+    end
+
+    context "whithout user name" do
+      it "should return the user email address" do
+        pending
+        user = Factory.create(:user, :email => "email@example.com")
+        helper.welcome(user).should =~ "email@example.com"
+      end
+    end
+  end
+
+  describe "google analytics" do
+    before :each do
+      pending
+      settings = Factory.create(:setting)
+      mock(:website_settings).and_return(settings)
+    end
+
+    context "with google analytics code" do
+      it "should return the default google analytics code" 
+    end
+    context "with a google analytics custom script code" do
+      it "should return the script code"
+    end
+
+    context "without any google analytics code" do
+      it "should return null" do
+        helper.google_analytics.should be_nil
+      end
+    end
+  end
 end

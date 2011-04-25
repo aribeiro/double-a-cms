@@ -42,7 +42,7 @@ describe Admin::UsersController do
       it "show a flash notice" do
         do_post
         assigns(:user).should be(mock_user)
-        flash[:notice].should == "User successfully created."
+        flash[:notice].should_not be_nil 
       end
     end
 
@@ -95,7 +95,7 @@ describe Admin::UsersController do
       it "show a flash notice" do
         User.stub(:find).with("37"){mock_user(:update_attributes => true)}
         post :update, :id => "37"
-        flash[:notice].should == "User successfully updated."
+        flash[:notice].should_not be_nil 
       end
     end
 
@@ -134,7 +134,7 @@ describe Admin::UsersController do
     
     it "show a flash notice" do
       do_delete
-      flash[:notice].should == "User successfully destroyed."
+      flash[:notice].should_not be_nil 
     end
   end
 end

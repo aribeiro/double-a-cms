@@ -9,7 +9,9 @@ class Admin::SettingsController < Admin::ApplicationController
     @setting = Setting.first
     if @setting.update_attributes(params[:setting])
       flash[:notice] = t("notice.successfully.updated", :model => t("models.setting.name").capitalize)
+      redirect_to admin_settings_url
+    else
+      render :action => :index
     end
-    respond_with([:admin,@setting], :location => admin_settings_url)
   end
 end

@@ -63,8 +63,8 @@ describe Admin::PagesController do
 
   describe "GET 'edit'" do
     it "assigns the requested page as @page" do
-      Page.stub(:find).with("37") { mock_page }
-      get :edit, :id => "37"
+      Page.stub(:by_slug).with("page") { mock_page }
+      get :edit, :id => "page"
       assigns(:page).should be(mock_page)
     end
   end
@@ -72,8 +72,8 @@ describe Admin::PagesController do
   describe "PUT update" do
     context "with valid params" do
       def do_put
-        Page.stub(:find).with("37"){mock_page(:update_attributes => true)}
-        post :update, :id => "37"
+        Page.stub(:by_slug).with("page"){mock_page(:update_attributes => true)}
+        post :update, :id => "page"
       end
       it "assigns the requested page as @page" do
         do_put
@@ -81,9 +81,9 @@ describe Admin::PagesController do
       end
       
       it "updates the requested page" do
-        Page.stub(:find).with("37"){mock_page(:update_attributes => true)}
+        Page.stub(:by_slug).with("page"){mock_page(:update_attributes => true)}
         mock_page.should_receive(:update_attributes).with({'these' => 'params'})
-        post :update, :id => "37", :page => {'these' => 'params'}
+        post :update, :id => "page", :page => {'these' => 'params'}
       end
       
       it "redirect to updated page" do
@@ -99,8 +99,8 @@ describe Admin::PagesController do
 
     context "with invalid params" do
       def do_put
-        Page.stub(:find) { mock_page(:update_attributes => false) }
-        put :update, :id => "37"
+        Page.stub(:by_slug) { mock_page(:update_attributes => false) }
+        put :update, :id => "page"
       end
       
       it "assigns the page as @page" do
@@ -117,9 +117,9 @@ describe Admin::PagesController do
   
   describe "DELETE destroy" do
     def do_delete
-      Page.stub(:find).with("37") { mock_page }
+      Page.stub(:by_slug).with("page") { mock_page }
       mock_page.should_receive(:destroy)
-      delete :destroy, :id => "37"
+      delete :destroy, :id => "page"
     end
     it "destroys the requested page" do
       do_delete
