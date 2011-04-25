@@ -18,6 +18,7 @@ gem "css3buttons"
 gem 'i18n_routing'
 gem 'i18n'
 
+gem 'babosa', '0.2.2'
 
 group :test do
   gem "rspec-rails", ">= 2.5.0"

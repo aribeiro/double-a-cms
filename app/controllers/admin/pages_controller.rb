@@ -36,6 +36,6 @@ class Admin::PagesController < Admin::ApplicationController
 
   protected
   def find_page
-    @page = Page.find(params[:id])
+    @page = Page.by_slug(params[:id]).first
   end
 end
