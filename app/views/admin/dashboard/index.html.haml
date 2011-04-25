@@ -1,2 +1,21 @@
-%h1 Admin::Dashboard#index
-%p Find me in app/views/admin/dashboard/index.html.haml
+%fieldset
+  %legend= t("activities")
+  %table
+    %tr
+      %th= t("tables.dashboard.action")
+      %th= t("tables.dashboard.classe")
+      %th= t("tables.dashboard.object")
+      %th= t("tables.dashboard.author")
+      %th
+    - @activities.each do |log| 
+      %tr
+        %td
+          - if log.klass.constantize.where(:_id => log.target["_id"]).first
+            = link_to t("#{log.action}"), [:admin, log.klass.constantize.where(:_id => log.target["_id"]).first] 
+          - else
+            = t("#{log.action}")
+        %td= t("models.#{log.klass_name}.name")
+        %td= log.display
+        %td= log.user.name
+        %td= log.created_at.to_s(:db)
+
