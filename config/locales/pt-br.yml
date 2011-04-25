@@ -2,6 +2,13 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 "pt-BR":
+  activities: "Últimas atividades do Sistema"
+  tables:
+    dashboard:
+      action: Ação
+      class: Classe
+      object: Objeto
+      author: Autor
   dashboard: Painel
   settings: "Configurações"
   new: Novo
@@ -14,6 +21,9 @@
   logout: Sair
   disable: desabilitado
   enable: abilitado
+  created: Criado
+  updated: Alterado
+  deleted: Removido
   controllers:
     dashboard: 
       name: painel

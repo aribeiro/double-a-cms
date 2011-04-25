@@ -38,17 +38,17 @@ en:
         show: visualizar
   models:
     user:
-      name: user
+      name: User
       attributes:
         email: email
         password: password
     page:
-      name: page
+      name: Page
       attributes:
         title: title
         content: content
     setting:
-      name: setting
+      name: Setting
   notice:
     successfully:
       created: "%{model} successfully created."
